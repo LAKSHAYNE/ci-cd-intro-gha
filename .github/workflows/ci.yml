@@ -3,14 +3,14 @@ name : Lakshays version of CI
 on:
   pull_request:
     branches:
-      -main
+      - main
     paths:
-      - "web/**"
+      - 'web/**'
   push:
     branches:
-      -main
+      - main
     paths:
-      -'web/**'
+      - 'web/**'
 
 jobs:
   test :
