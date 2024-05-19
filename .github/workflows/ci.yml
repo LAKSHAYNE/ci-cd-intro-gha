@@ -1,7 +1,6 @@
 name : Lakshays version of CI
 
 on:
-  workflow_dispatch:
   pull_request:
     branches:
       - main
@@ -12,6 +11,7 @@ on:
       - main
     paths:
       - 'web/**'
+  workflow_dispatch:
 
 jobs:
   test :
