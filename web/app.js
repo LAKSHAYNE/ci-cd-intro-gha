@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
-app.get('/ping',(req,res)=>res.send('me is here1'))
+app.get('/ping',(req,res)=>res.send('me is here221'))
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
