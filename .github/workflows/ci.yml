@@ -1,57 +1,52 @@
-name: Continuous Integration Workflow
+name: Lakshay CI version
 
 # This workflow is triggered whenever a new PR is created on the main branch
 on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'web/**'
-  push:
-    branches:
-      - main
-    paths:
-      - 'web/**'
   workflow_dispatch:
+  push:
+    branches:  
+      - main
+    paths:
+      - 'web/**'
+  pull_request:
+    branches:  
+      - main
+    paths:
+      - 'web/**'
+      
 
 jobs:
-
-  # Run unit tests to make sure everything is 👍
-  test:
-    name: 'Run unit tests'
+  test :
+    runs-on : ubuntu-latest
+    name : checking
     defaults:
       run:
-        shell: bash
-        # Define the working directory for all run steps in the workflow
-        working-directory: ./web
-    # Specify the OS we want the workflow to run on
-    runs-on: ubuntu-latest
-    # Define the steps for this job
+        shell : bash
+        working-directory : ./web
     steps:
-    - uses: actions/checkout@v2
-      name: 'Checkout repository'
+      - uses : actions/checkout@v2
+        name : 'Checkout repository'
 
-    - name: 'Install Dependencies'
-      run: npm install
-    
-    - name: 'Run Tests'
-      run: npm run test
+      - name : "Install Dependencies"
+        run : actions/checkout@v2
 
-  # Run the linter to check for code style issues
-  lint:
-    name: 'Run linter'
-    defaults:
+      - name: 'Run Tests'
+        run: npm run test
+
+  Linter :
+    name : Linting
+    runs-on : ubuntu-latest
+    defaults :
       run:
-        shell: bash
-        # Define the working directory for all run steps in the workflow
-        working-directory: ./web
-    runs-on: ubuntu-latest
-    steps:    
-    - uses: actions/checkout@v2
-      name: 'Checkout repository'
-    
-    - name: 'Install Dependencies'
-      run: npm install
+        shell : bash
+        working-directory : ./web
 
-    - name: 'Run Linter'
-      run: npx standard -v
+    steps:
+      - name : "checkinout repo"
+        run : actions/checkout@v2
+
+      - name : "Install Dependencies"
+        run : npm install
+  
+      - name : 'Run Linter'
+        run : npx standard -v
