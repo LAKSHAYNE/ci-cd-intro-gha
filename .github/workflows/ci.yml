@@ -1,13 +1,16 @@
-name: Continuous Integration Workflow
+name: Lakshay CI version
 
 # This workflow is triggered whenever a new PR is created on the main branch
 on:
+  workflow_dispatch:
   push:
-    branches: [ main ]
+    branches:  
+      - main
     paths:
       - 'web/**'
   pull_request:
-    branches: [ main ]
+    branches:  
+      - main
     paths:
       - 'web/**'
 
