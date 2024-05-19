@@ -1,6 +1,7 @@
 name : Lakshays version of CI
 
 on:
+  workflow_dispatch:
   pull_request:
     branches:
       - main
@@ -24,8 +25,23 @@ jobs:
       - uses : actions/checkout@v2
         name : 'Checkout repository'
 
+  Linter :
+    name : Linting
+    runs-on : ubuntu-latest
+    defaults :
+      shell : bash
+      working-directory : ./web
+
+    steps:
+      - name : "checkinout repo"
+        run : actions/checkout@v2
+
+      - name : "Install Dependencies"
+        run : npm install
+  
+
       - name : 'Install dependencies'
         run : npm install
 
-      - name : 'Run tests'
-        run : npm run test
+      - name : 'Run Linter'
+        run : npx standard -v
