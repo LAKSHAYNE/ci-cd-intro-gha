@@ -11,7 +11,6 @@ on:
       - main
     paths:
       - 'web/**'
-  workflow_dispatch:
 
 jobs:
   test :
